@@ -7,70 +7,92 @@
 <title>for you</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#fbeaef;color:#6b3a48;font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;letter-spacing:.01em}
-.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem}
-.hero svg{width:min(220px,55vw)}
-.hero p{font-size:.95rem;letter-spacing:.35em;text-transform:lowercase}
-.letter{max-width:26rem;margin:0 auto;padding:4rem 1.5rem 6rem;text-align:center;text-transform:lowercase}
+body{background:#fbeaef;color:#6b3a48;font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;letter-spacing:.01em;overflow-x:hidden}
+body.locked{overflow:hidden}
+#float{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.f{position:absolute;bottom:-40px;color:#f2b6c6;animation:rise linear infinite;opacity:.75}
+@keyframes rise{to{transform:translateY(-115vh) translateX(var(--dx)) rotate(var(--rot))}}
+#intro{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;transition:opacity 1s ease}
+#intro.gone{opacity:0;pointer-events:none}
+#bow{background:none;border:none;cursor:pointer;font-size:110px;line-height:1;animation:sway 3s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+@keyframes sway{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(4deg) scale(1.05)}}
+#intro p{font-size:.9rem;letter-spacing:.35em}
+main{position:relative;z-index:1;opacity:0;transition:opacity 1.2s ease .3s}
+main.show{opacity:1}
+.letter{max-width:24rem;margin:3.5rem auto 2.5rem;padding:2rem 1.5rem;text-align:center;text-transform:lowercase;background:rgba(255,255,255,.6);border:1px solid #efb9c8;border-radius:20px}
 .letter p+p{margin-top:1rem}
-.board{columns:2 160px;column-gap:10px;padding:0 10px;max-width:1100px;margin:0 auto}
+.board{columns:2;column-gap:10px;padding:0 10px;max-width:900px;margin:0 auto}
 .board>*{break-inside:avoid;margin-bottom:10px;border-radius:16px;overflow:hidden;display:block;width:100%}
+.board .v{aspect-ratio:3/4;object-fit:cover}
+.board .v45{aspect-ratio:4/5;object-fit:cover}
 .board img{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
 .board img.in{opacity:1;transform:none}
-.txt{background:#f5d3dd;padding:2.2rem 1.2rem;text-align:center;text-transform:lowercase;font-size:.9rem}
-.end{padding:6rem 1rem 5rem;text-align:center;text-transform:lowercase;letter-spacing:.3em;font-size:.85rem}
+.txt{background:rgba(255,255,255,.6);border:1px solid #efb9c8;padding:2.2rem 1.2rem;text-align:center;text-transform:lowercase;font-size:.9rem}
+.end{position:relative;z-index:1;padding:5rem 1rem 4rem;text-align:center;letter-spacing:.3em;font-size:.85rem}
 @media(min-width:700px){.board{columns:3;column-gap:14px;padding:0 14px}.board>*{margin-bottom:14px}}
-@media(min-width:1000px){.board{columns:4}}
 </style>
 </head>
-<body>
+<body class="locked">
 
-<header class="hero">
-  <svg viewBox="0 0 200 150" aria-hidden="true">
-    <g fill="#f4b3c4" stroke="#e693a9" stroke-width="2.5" stroke-linejoin="round">
-      <path d="M94 66 C70 74 58 110 46 140 L62 132 L70 146 C80 116 92 88 100 72 Z"/>
-      <path d="M106 66 C130 74 142 110 154 140 L138 132 L130 146 C120 116 108 88 100 72 Z"/>
-      <path d="M100 60 C82 30 30 14 22 40 C14 66 50 86 100 70 Z"/>
-      <path d="M100 60 C118 30 170 14 178 40 C186 66 150 86 100 70 Z"/>
-      <rect x="88" y="54" width="24" height="22" rx="8"/>
-    </g>
-    <g fill="none" stroke="#e693a9" stroke-width="1.6" stroke-linecap="round" opacity=".7">
-      <path d="M88 60 C70 46 48 38 36 42"/>
-      <path d="M112 60 C130 46 152 38 164 42"/>
-    </g>
-  </svg>
+<div id="float"></div>
+
+<div id="intro">
+  <button id="bow" aria-label="ouvrir">&#x1F380;</button>
   <p>for you</p>
-</header>
+</div>
 
-<section class="letter">
-  <p>je ne vais pas chercher d'excuses. j'ai eu tort, et tu ne méritais pas ça.</p>
-  <p>tu es la personne avec qui tout devient plus simple, plus doux, plus drôle. et parfois j'oublie de te le montrer comme tu le mérites.</p>
-  <p>alors voilà, un petit endroit rien que pour toi.</p>
-</section>
+<main>
+  <section class="letter">
+    <p>je ne vais pas chercher d'excuses. j'ai eu tort, et tu ne méritais pas ça.</p>
+    <p>tu es la personne avec qui tout devient plus simple, plus doux, plus drôle. et parfois j'oublie de te le montrer comme tu le mérites.</p>
+    <p>alors voilà, un petit endroit rien que pour toi.</p>
+  </section>
 
-<main class="board">
-  <img src="img/note1.jpg" alt="">
-  <img src="img/us1.jpg" alt="">
-  <img src="img/m4.jpg" alt="">
-  <img src="img/cat.jpg" alt="">
-  <div class="txt">toi & moi</div>
-  <img src="img/m1.jpg" alt="">
-  <img src="img/us2.jpg" alt="">
-  <img src="img/note2.jpg" alt="">
-  <img src="img/m3.jpg" alt="">
-  <img src="img/m6.jpg" alt="">
-  <img src="img/cats.jpg" alt="">
-  <div class="txt">mon endroit préféré, c'est à côté de toi</div>
-  <img src="img/us3.jpg" alt="">
-  <img src="img/m2.jpg" alt="">
-  <img src="img/m5.jpg" alt="">
+  <div class="board">
+    <img src="img/note1.jpg" alt="">
+    <img class="v" src="img/m4.jpg" style="object-position:55% 50%" alt="">
+    <img class="v" src="img/us2.jpg" style="object-position:55% 50%" alt="">
+    <img src="img/cat.jpg" alt="">
+    <div class="txt">toi & moi</div>
+    <img class="v45" src="img/m3.jpg" style="object-position:40% 50%" alt="">
+    <img class="v" src="img/m6.jpg" style="object-position:45% 50%" alt="">
+    <img src="img/us1.jpg" alt="">
+    <img src="img/note2.jpg" alt="">
+    <img class="v45" src="img/us3.jpg" style="object-position:38% 50%" alt="">
+    <img class="v" src="img/m2.jpg" style="object-position:62% 50%" alt="">
+    <img src="img/cats.jpg" alt="">
+    <div class="txt">mon endroit préféré, c'est à côté de toi</div>
+    <img class="v45" src="img/m5.jpg" style="object-position:45% 50%" alt="">
+    <img src="img/m1.jpg" alt="">
+  </div>
+
+  <footer class="end">je t'aime</footer>
 </main>
 
-<footer class="end">je t'aime</footer>
-
 <script>
+const fl=document.getElementById('float');
+const glyphs=['♥','♡','✦','✧'];
+for(let i=0;i<22;i++){
+  const s=document.createElement('span');
+  s.className='f';
+  s.textContent=glyphs[i%glyphs.length];
+  s.style.left=Math.random()*100+'vw';
+  s.style.fontSize=(10+Math.random()*18)+'px';
+  s.style.setProperty('--dx',(Math.random()*80-40)+'px');
+  s.style.setProperty('--rot',(Math.random()*120-60)+'deg');
+  s.style.animationDuration=(12+Math.random()*14)+'s';
+  s.style.animationDelay=(-Math.random()*20)+'s';
+  fl.appendChild(s);
+}
+
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
-document.querySelectorAll('.board img').forEach(el=>io.observe(el));
+
+document.getElementById('bow').onclick=()=>{
+  document.getElementById('intro').classList.add('gone');
+  document.querySelector('main').classList.add('show');
+  document.body.classList.remove('locked');
+  document.querySelectorAll('.board img').forEach(el=>io.observe(el));
+};
 </script>
 </body>
 </html>
