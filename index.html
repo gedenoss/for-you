@@ -18,8 +18,13 @@ body.locked{overflow:hidden}
 #intro p{font-size:.9rem;letter-spacing:.35em}
 main{position:relative;z-index:1;opacity:0;transition:opacity 1.2s ease .3s}
 main.show{opacity:1}
-.letter{max-width:24rem;margin:3.5rem auto 2.5rem;padding:2rem 1.5rem;text-align:center;text-transform:lowercase;background:#f5d3dd;border-radius:20px}
+.letter{max-width:24rem;margin:1.5rem auto 2.5rem;padding:2rem 1.5rem;text-align:center;text-transform:lowercase;background:#f5d3dd;border-radius:20px}
 .letter p+p{margin-top:1rem}
+.sorry{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:min(8.6vw,4.5rem);white-space:nowrap;line-height:1;text-align:center;padding:4.5rem 0 3rem;color:#d9879f;letter-spacing:-.02em}
+.pair{border-radius:0!important;overflow:visible!important}
+.pair img{display:block;width:100%;border-radius:16px;margin-bottom:10px}
+.pair .txt{border-radius:16px}
+.arrow{display:block;font-size:1.4rem;line-height:1;margin-bottom:.6rem}
 .board{columns:2;column-gap:10px;padding:0 10px;max-width:900px;margin:0 auto}
 .board>*{break-inside:avoid;margin-bottom:10px;border-radius:16px;overflow:hidden;display:block;width:100%}
 .board .v{aspect-ratio:3/4;object-fit:cover}
@@ -39,11 +44,7 @@ main.show{opacity:1}
 </div>
 
 <main>
-  <section class="letter">
-    <p>je ne vais pas chercher d'excuses. j'ai eu tort, et tu ne méritais pas ça.</p>
-    <p>tu es la personne avec qui tout devient plus simple, plus doux, plus drôle. et parfois j'oublie de te le montrer comme tu le mérites.</p>
-    <p>alors voilà, un petit endroit rien que pour toi.</p>
-  </section>
+  <h1 class="sorry">SORRY DON'T HATE ME</h1>
 
   <div class="board">
     <img src="img/note1.jpg" alt="">
@@ -54,11 +55,22 @@ main.show{opacity:1}
     <img class="v45" src="img/m3.jpg" style="object-position:40% 50%" alt="">
     <img class="v" src="img/m6.jpg" style="object-position:45% 50%" alt="">
     <img src="img/us1.jpg" alt="">
+  </div>
+
+  <section class="letter">
+    <p>je ne vais pas chercher d'excuses. j'ai eu tort, et tu ne méritais pas ça.</p>
+    <p>tu es la personne avec qui tout devient plus simple, plus doux, plus drôle. et parfois j'oublie de te le montrer comme tu le mérites.</p>
+    <p>alors voilà, un petit endroit rien que pour toi.</p>
+  </section>
+
+  <div class="board">
     <img src="img/note2.jpg" alt="">
-    <img class="v45" src="img/us3.jpg" style="object-position:38% 50%" alt="">
+    <div class="pair">
+      <img class="v45" src="img/us3.jpg" style="object-position:38% 50%" alt="">
+      <div class="txt"><span class="arrow">↑</span>mon endroit préféré, c'est à côté de toi</div>
+    </div>
     <img class="v" src="img/m2.jpg" style="object-position:62% 50%" alt="">
     <img src="img/cats.jpg" alt="">
-    <div class="txt">mon endroit préféré, c'est à côté de toi</div>
     <img class="v45" src="img/m5.jpg" style="object-position:45% 50%" alt="">
     <img src="img/m1.jpg" alt="">
   </div>
