@@ -25,15 +25,17 @@ main.show{opacity:1}
 .pair img{display:block;width:100%;border-radius:16px;margin-bottom:10px}
 .pair .txt{border-radius:16px}
 .arrow{display:block;font-size:1.4rem;line-height:1;margin-bottom:.6rem}
-.board{columns:2;column-gap:10px;padding:0 10px;max-width:900px;margin:0 auto}
-.board>*{break-inside:avoid;margin-bottom:10px;border-radius:16px;overflow:hidden;display:block;width:100%}
+.board{display:flex;gap:10px;padding:0 10px;max-width:640px;margin:0 auto}
+.col{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px}
+.col>*{flex:1 1 auto;border-radius:16px;overflow:hidden;display:block;width:100%}
+.col>img{object-fit:cover;min-height:0}
+.col>.pair{flex:0 0 auto}
 .board .v{aspect-ratio:3/4;object-fit:cover}
 .board .v45{aspect-ratio:4/5;object-fit:cover}
 .board img{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
 .board img.in{opacity:1;transform:none}
-.txt{background:#f5d3dd;padding:2.2rem 1.2rem;text-align:center;text-transform:lowercase;font-size:.9rem}
+.txt{background:#f5d3dd;padding:1.6rem 1rem;display:flex!important;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-transform:lowercase;font-size:.9rem}
 .end{position:relative;z-index:1;padding:5rem 1rem 4rem;text-align:center;letter-spacing:.3em;font-size:.85rem}
-@media(min-width:700px){.board{columns:3;column-gap:14px;padding:0 14px}.board>*{margin-bottom:14px}}
 </style>
 </head>
 <body class="locked">
@@ -47,14 +49,18 @@ main.show{opacity:1}
   <h1 class="sorry">SORRY DON'T HATE ME</h1>
 
   <div class="board">
-    <img src="img/note1.jpg" alt="">
-    <img class="v" src="img/m4.jpg" style="object-position:55% 50%" alt="">
-    <img class="v" src="img/us2.jpg" style="object-position:55% 50%" alt="">
-    <img src="img/cat.jpg" alt="">
-    <div class="txt">toi & moi</div>
-    <img class="v45" src="img/m3.jpg" style="object-position:40% 50%" alt="">
-    <img class="v" src="img/m6.jpg" style="object-position:45% 50%" alt="">
-    <img src="img/us1.jpg" alt="">
+    <div class="col">
+      <img src="img/note1.jpg" alt="">
+      <img class="v" src="img/m4.jpg" style="object-position:55% 50%" alt="">
+      <img class="v45" src="img/m3.jpg" style="object-position:40% 50%" alt="">
+    </div>
+    <div class="col">
+      <img src="img/cat.jpg" alt="">
+      <div class="txt">toi & moi</div>
+      <img class="v" src="img/us2.jpg" style="object-position:55% 50%" alt="">
+      <img class="v" src="img/m6.jpg" style="object-position:45% 50%" alt="">
+      <img src="img/us1.jpg" alt="">
+    </div>
   </div>
 
   <section class="letter">
@@ -64,15 +70,19 @@ main.show{opacity:1}
   </section>
 
   <div class="board">
-    <img src="img/note2.jpg" alt="">
-    <div class="pair">
-      <img class="v45" src="img/us3.jpg" style="object-position:38% 50%" alt="">
-      <div class="txt"><span class="arrow">↑</span>mon endroit préféré, c'est à côté de toi</div>
+    <div class="col">
+      <img src="img/note2.jpg" alt="">
+      <div class="pair">
+        <img class="v45" src="img/us3.jpg" style="object-position:38% 50%" alt="">
+        <div class="txt"><span class="arrow">↑</span>mon endroit préféré, c'est à côté de toi</div>
+      </div>
+      <img src="img/m1.jpg" alt="">
     </div>
-    <img class="v" src="img/m2.jpg" style="object-position:62% 50%" alt="">
-    <img src="img/cats.jpg" alt="">
-    <img class="v45" src="img/m5.jpg" style="object-position:45% 50%" alt="">
-    <img src="img/m1.jpg" alt="">
+    <div class="col">
+      <img class="v" src="img/m2.jpg" style="object-position:62% 50%" alt="">
+      <img src="img/cats.jpg" alt="">
+      <img class="v45" src="img/m5.jpg" style="object-position:45% 50%" alt="">
+    </div>
   </div>
 
   <footer class="end">je t'aime</footer>
